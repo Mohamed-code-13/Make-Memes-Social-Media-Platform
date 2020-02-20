@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 style="margin: 25px; margin-left: 55px;">Profile</h2>
+
+    <div class="cont">
+        <span class="dot"></span>
+        <div class="">
+            <h5 class="card-title">{{ name }}</h5>
+        </div>
+    </div>
+
+    {% for post in posts %}
+        {% if post.user == name %}
+            <div class="post">
+                 <div class="card">
+                  <div class="card-body">
+                      <div class="info">
+                        <span class="dot"></span>
+                      </div>
+                    <div class="info name">
+                        <h5 class="card-title">{{ post.user }}</h5>
+                      </div>
+                    <p class="card-text">{{ post.text }} </p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                    <img src="https://cdn.britannica.com/67/197567-131-1645A26E/Scottish-fold-cat-feline.jpg">
+
+
+                     <div class="up">
+                     <div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="9068085">
+
+                        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer btn" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary">
+
+                            <svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36">
+
+                                <path d="M2 26h32L18 10"></path>
+
+                            </svg>
+                         </button>
+
+                        <div class="vote">
+                            0
+                         </div>
+
+                        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer btn" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary">
+                            <svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36">
+                                <path d="M2 10h32L18 26"></path>
+                            </svg>
+                         </button>
+
+                         </div>
+                     </div>
+
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

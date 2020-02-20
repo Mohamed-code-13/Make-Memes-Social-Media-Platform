@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Make Memes</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container notbody">
+                <div class="navbar-brand notbody">Make Memes</div>
+
+                <button class="navbar-toggler notbody" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+
+                  <span class="navbar-toggler-icon notbody"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse notbody" id="navbarColor02">
+
+                  <ul class="navbar-nav mr-auto notbody">
+
+                    <li class="nav-item active notbody">
+                      <a class="nav-link notbody" href="/home/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item notbody">
+                      <a class="nav-link notbody" href="/profile/">Profile</a>
+                    </li>
+
+                  </ul>
+
+                  <form class="form-inline notbody">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                            Search
+                      </button>
+                      <i class="material-icons dp48 a" style="color: blue">search</i>
+                  </form>
+            </div>
+
+            </div>
+        </nav>
+
+        <div class="body">
+                {% block content %}
+
+                {% endblock content %}
+        </div>
+
+        <script src="{% static 'design.js' %}"></script>
+    </body>
+</html>

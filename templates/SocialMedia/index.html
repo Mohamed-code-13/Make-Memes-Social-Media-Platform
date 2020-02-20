@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 style="margin: 25px; margin-left: 55px;">Home</h2>
+    
+    <div class="cont">
+        <span class="dot"></span>
+        <i class="large material-icons dp48">add_a_photo</i>
+        <i class="material-icons dp48">tag_faces</i>
+        <form method="post" action="add_post/">
+            {% csrf_token %}
+
+            <div class="input-group mb-3">
+
+              <input name="new_post" type="text" class="text i" placeholder="Share Memes !">
+<!--              <input name="new_post" type="text" class="form-control inp" placeholder="Share Memes !" aria-label="Recipient's username" aria-describedby="button-addon2">-->
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary inp b" type="submit" id="button-addon2" >
+                    <span style="color: aliceblue; position: absolute; top: 5px; left: 40px;">Post
+                        <i class="material-icons right" style="position: absolute; top: 2px; left: 40px; color:#1c631c;">
+                            send
+                        </i>
+                    </span>
+                    
+                </button>
+              </div>
+
+            </div>
+        </form>
+    </div>
+
+    {% for post in posts %}
+
+        <div class="post">
+             <div class="card">
+              <div class="card-body">
+                  <div class="info">
+                    <span class="dot"></span>
+                  </div>
+                <div class="info name">
+                    <h5 class="card-title">{{ post.user }}</h5>
+                  </div>
+                <p class="card-text">{{ post.text }} </p>
+                <p class="card-text"><small class="text-muted">{{ post.created }}</small></p>
+              </div>
+                <img src="https://cdn.britannica.com/67/197567-131-1645A26E/Scottish-fold-cat-feline.jpg">
+
+
+                 <div class="up">
+                 <div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="9068085">
+
+                    <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer btn" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary">
+
+                        <svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36">
+
+                            <path d="M2 26h32L18 10"></path>
+
+                        </svg>
+                     </button>
+
+                    <div class="vote">
+                        0
+                     </div>
+
+                    <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer btn" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary">
+                        <svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36">
+                            <path d="M2 10h32L18 26"></path>
+                        </svg>
+                     </button>
+
+                     </div>
+                 </div>
+
+            </div>
+        </div>
+    {% endfor %}
+    <script>
+
+    </script>
+{% endblock %}
