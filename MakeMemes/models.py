@@ -5,10 +5,12 @@ from django.db import models
 
 # creating a new model.
 class Post(models.Model):
+    objects = None
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts", null=True)
 
     text = models.CharField(max_length=256)
     created = models.DateTimeField(auto_now=True)
+    vote = models.IntegerField(default=0)
 
     # display the name of the object instead of object1, object2 and so on.
     def __str__(self):

@@ -47,27 +47,40 @@
 
 
                  <div class="up">
-                 <div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="9068085">
+                     <div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="9068085">
 
-                    <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer btn" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary">
+                         <form method="post" action="vote/{{post.id}}">
+                             {% csrf_token %}
 
-                        <svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36">
+                             <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer btn"
+                                     title="This answer is useful" aria-pressed="false" aria-label="up vote"
+                                     data-selected-classes="fc-theme-primary" type="submit" name="vote_up" value=vote_up">
 
-                            <path d="M2 26h32L18 10"></path>
+                                <svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36">
 
-                        </svg>
-                     </button>
+                                    <path d="M2 26h32L18 10"></path>
 
-                    <div class="vote">
-                        0
-                     </div>
+                                </svg>
 
-                    <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer btn" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary">
-                        <svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36">
-                            <path d="M2 10h32L18 26"></path>
-                        </svg>
-                     </button>
+                             </button>
 
+                            <div class="vote">
+                                {{ post.vote }}
+                            </div>
+
+                            <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer btn"
+                                    title="This answer is not useful" aria-pressed="false" aria-label="down vote"
+                                    data-selected-classes="fc-theme-primary" type="submit" name="vote_down" value=vote_down">
+
+                                <svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36">
+
+                                    <path d="M2 10h32L18 26"></path>
+
+                                </svg>
+
+                            </button>
+
+                         </form>
                      </div>
                  </div>
 

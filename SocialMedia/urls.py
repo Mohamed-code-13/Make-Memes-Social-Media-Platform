@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('MakeMemes.urls')),
     path('', views.register, name='register'),
     path('', include("django.contrib.auth.urls")),
+    path('log/', views.logout, name='logout')
 ]

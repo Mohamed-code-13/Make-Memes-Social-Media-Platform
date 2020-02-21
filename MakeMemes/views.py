@@ -22,11 +22,24 @@ def add_post(request):
 
 def profile(request):
     posts = Post.objects.all().order_by('-created')
-    p = str(posts).split('Post')
-    # print(posts.user)
-    # print(posts.text)
 
     return render(request, 'SocialMedia/profile.html', {
         'posts': posts,
         'name': request.user
     })
+
+def vote(request, id_post):
+    if request.method == 'POST':
+        if request.POST.get('vote_up'):
+            post = Post.objects.get(id=id_post)
+            post.vote += 1
+            post.save()
+            return HttpResponseRedirect('/home')
+
+        else:
+            post = Post.objects.get(id=id_post)
+            post.vote -= 1
+            post.save()
+            return HttpResponseRedirect('/home')
+
+

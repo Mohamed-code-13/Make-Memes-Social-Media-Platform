@@ -20,3 +20,6 @@ def sign(request):
     form = UserCreationForm()
 
     return render(request, 'base.html', {'form': form})
+
+def logout(request):
+    return redirect("/login")
